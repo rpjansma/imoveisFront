@@ -84,7 +84,7 @@
             <li><a href="#" class="nav-link px-2 text-white">Contato</a></li>
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-3">
             <input
               type="search"
               class="form-control form-control-dark"
@@ -103,93 +103,122 @@
       </div>
     </header>
 
-    <main class="container">
-      <h1>Sobre a Imobiliaria</h1>
-
-      <h2>Cadatre uma nova Imobiliaria</h2>
-      <form class="form-group mt-3">
-        <div class="mb-3">
+      <div class="container mt-2">
+      <h2>Cadastre uma nova Imobiliaria</h2>
+      <form class="form-group d-flex flex-wrap flex-shrink-0 flex-grow-0 container mt-4">
+        <div class="col-6 mb-2">
           <input
             type="text"
             class="form-control"
-            id="cep"
-            aria-describedby="cep"
-            placeholder="Cep"
-            value=""
-            size="10"
-            maxlength="9"
-            onblur="pesquisacep(this.value);"
+            id="nome"
+            placeholder="Nome da Imobiliária"
           />
         </div>
 
-        <div class="mb-3">
+        <div class="col-4 mb-2">
           <input
-            type="text"
-            class="form-control disabled"
-            id="rua"
-            placeholder="Rua"
-            readonly
+            type="site"
+            class="form-control"
+            id="site"
+            placeholder="Site da Imobiliária"
           />
         </div>
 
-        <div class="mb-3">
+        <div class="col-4 mb-1">
           <input
             type="text"
             class="form-control"
-            id="numero"
-            placeholder="Número"
+            id="Creci"
+            placeholder="Creci"
           />
         </div>
 
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control disabled"
-            id="bairro"
-            placeholder="Bairro"
-            readonly
-          />
-        </div>
+        <label>Endereço</label>
+        <div class="border pt-1 px-2 pe-2 mb-1">
+          <div class="mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="cep"
+              aria-describedby="cep"
+              placeholder="Cep"
+              value=""
+              size="10"
+              maxlength="9"
+              onblur="pesquisacep(this.value);"
+            />
+          </div>
 
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="cidade"
-            placeholder="Cidade"
-            readonly
-          />
-        </div>
+          <div class="mb-2">
+            <input
+              type="text"
+              class="form-control disabled"
+              id="rua"
+              placeholder="Rua"
+              readonly
+            />
+          </div>
 
-        <div>
-          <input
-            type="text"
-            class="form-control"
-            id="estado"
-            placeholder="Estado"
-            readonly
-          />
-        </div>
+          <div class="mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="numero"
+              placeholder="Número"
+            />
+          </div>
 
-        <div id="dataTip" class="form-text mb-3">
-          We'll never share your data with anyone.
-        </div>
+          <div class="mb-2">
+            <input
+              type="text"
+              class="form-control disabled"
+              id="bairro"
+              placeholder="Bairro"
+              readonly
+            />
+          </div>
 
-        <button
-          type="submit"
-          onclick="salvarImobiliaria()"
-          class="btn btn-primary"
-        >
-          Cadastrar
-        </button>
-        <button
-          type="submit"
-          onclick="resetaForm()"
-          class="btn btn-outline-secondary"
-        >
-          Resetar Formulário
-        </button>
+          <div class="mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="cidade"
+              placeholder="Cidade"
+              readonly
+            />
+          </div>
+
+          <div class="mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="estado"
+              placeholder="Estado"
+              readonly
+            />
+          </div>
+      </div>
+
       </form>
+
+      <div id="dataTip" class="form-text mb-3">
+        We'll never share your data with anyone.
+      </div>
+
+      <button
+        type="submit"
+        onclick="salvarImobiliaria()"
+        class="btn btn-primary"
+      >
+        Cadastrar
+      </button>
+      <button
+        type="submit"
+        onclick="resetaForm()"
+        class="btn btn-outline-secondary"
+      >
+        Resetar Formulário
+      </button>
 
       <button
         type="submit"
@@ -209,10 +238,13 @@
 
       <table class="table-bordered mt-3" id="mostraImob">
         <tr class="p-2 mb-1">
-          <td class="p-2">Nome</td>
-          <td class="p-2">Endereço</td>
+          <th class="p-2">Nome</th>
+          <th class="p-2">Endereço</th>
         </tr>
+        <tbody id="tableContent">
+        </tbody>
       </table>
+    </div>
     </main>
   </body>
 </html>

@@ -3,13 +3,18 @@ const API = "http://localhost:8080/imobiliaria";
 function salvarImobiliaria() {
   let rua = document.getElementById("rua").value;
   let bairro = document.getElementById("bairro").value;
-  let numero = '(document.getElementById("numero").value);';
-  let cidade = '(document.getElementById("cidade").value);';
-  let estado = '(document.getElementById("estado").value);';
+  let numero = (document.getElementById("numero").value);
+  let cidade = (document.getElementById("cidade").value);
+  let estado = (document.getElementById("estado").value);
+
 
   const dataInfo = {
+    nome: nome,
     endereco: rua,
-    nome: bairro,
+    bairro: bairro,
+    numero: numero,
+    cidade: cidade,
+    estado: estado
   };
 
   $.ajax({
@@ -38,15 +43,22 @@ async function buscarTodasImobiliarias() {
 
 async function gerarListaImobiliarias() {
   let lista = await buscarTodasImobiliarias();
+  let dados = "";
   for(imobiliaria of lista) {
-
+    dados +=
     `
     <tr class="p-2 mb-1">
     <td class="p-2">${imobiliaria.nome}</td>
     <td class="p-2">${imobiliaria.endereco}</td>
+    <td class="p-2">${imobiliaria.numero}</td>
+    <td class="p-2">${imobiliaria.bairro}</td>
+    <td class="p-2">${imobiliaria.cidade}</td>
+    <td class="p-2">${imobiliaria.estado}</td>
+    <td class="p-2">${imobiliaria.creci}</td>
     </tr>
     `
   }
+  document.getElementById("tableContent").innerHTML = dados;
 }
 
 function resetaForm() {
