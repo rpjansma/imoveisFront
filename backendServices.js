@@ -1,6 +1,9 @@
 const API = "http://localhost:8080/imobiliaria";
 
 function salvarImobiliaria() {
+  let nome = document.getElementById("nome").value;
+  let site = document.getElementById("site").value;
+  let creci = document.getElementById("creci").value;
   let rua = document.getElementById("rua").value;
   let bairro = document.getElementById("bairro").value;
   let numero = (document.getElementById("numero").value);
@@ -10,6 +13,8 @@ function salvarImobiliaria() {
 
   const dataInfo = {
     nome: nome,
+    site: site,
+    creci: creci,
     endereco: rua,
     bairro: bairro,
     numero: numero,
